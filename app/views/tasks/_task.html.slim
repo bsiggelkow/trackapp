@@ -1,0 +1,26 @@
+div[class="task task-#{task.id} #{'task-in-work' if task.in_work?} #{'task-done' if task.done?}"]
+
+  .time #{format_logged(task.logged)}
+
+  - if task.in_work?
+    = link_to 'stop', stop_task_path(task), { class: 'task-action action-stop', remote: true, method: :post }
+  
+  - if task.done?
+    = link_to 'delete', task, { class: 'task-action action-delete', remote: true, method: :delete }
+
+  - if task.startable?
+    = link_to 'start', start_task_path(task), { class: 'task-action action-start', remote: true, method: :post }
+    = link_to 'done', finish_task_path(task), { class: 'task-action action-done', remote: true, method: :post }
+    
+  .task-title
+    - if task.in_work?
+      span.icon &#9874;
+    - elsif task.done?
+      span.icon &#10003;
+    - else
+      span.icon &#9417;
+    span #{task.name}
+    - unless task.logs.empty?
+      span.show-logs &#8609;
+  
+  div[class="task-logs logs-#{task.id}"]

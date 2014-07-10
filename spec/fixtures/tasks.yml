@@ -3,7 +3,12 @@
 chop:
   name: Chop tree
   done: true
-  project: tree 
+  project: tree
+
+stack:
+  name: Stack wood
+  done: false
+  project: tree
 
 gear:
   name: Gather car washing supplies

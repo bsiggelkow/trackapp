@@ -12,6 +12,10 @@ class Task < ActiveRecord::Base
     !logs.empty? && !logs.first.stop?
   end
 
+  def startable?
+    !done? && !in_work?
+  end
+
   def logged
     logs.map(&:duration).sum
   end

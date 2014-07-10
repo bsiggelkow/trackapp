@@ -14,7 +14,7 @@ RSpec.describe Task, :type => :model do
   it 'is invalid without a project' do
     task.project = nil
     expect(task.valid?).to eq(false)
-  end
+  end  
 
   it 'has a project' do
     expect(task.project).to eq(projects(:tree))
@@ -45,5 +45,17 @@ RSpec.describe Task, :type => :model do
       expect(tasks(:chop).in_work?).to be(false)
     end
   end
-
+  
+  context 'startable' do
+    it 'is false when done' do
+      expect(tasks(:chop).startable?).to be(false)
+    end
+    it 'is false when in-work' do
+      expect(tasks(:gear).startable?).to be(false)
+    end
+    it 'is true when not done and not in-work' do
+      expect(tasks(:stack).startable?).to be(true)
+    end
+  end
+  
 end
