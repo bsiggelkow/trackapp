@@ -24,3 +24,4 @@ div[class="task task-#{task.id} #{'task-in-work' if task.in_work?} #{'task-done'
       span.show-logs &#8609;
   
   div[class="task-logs logs-#{task.id}"]
+    = render task.logs

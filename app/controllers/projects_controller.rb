@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Projects.create(name: params[:name])
+    @project = Project.create(name: params[:name])
     @projects = Project.all
   end
 
