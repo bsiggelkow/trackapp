@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+chop_hour:
+  task: chop 
+  start: 2014-07-08 07:53:10
+  stop: 2014-07-08 08:53:10
+
+chop_six_hours:
+  task: chop 
+  start: 2014-07-07 10:00:00
+  stop: 2014-07-07 16:00:00
+
+gear_minutes:
+  task: gear
+  start: 2014-07-05 13:00:00
+  stop: 2014-07-05 13:17:30
+
+gear_now:
+  task: gear
+  start: 2014-07-08 10:50:00
+  

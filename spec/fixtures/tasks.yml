@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+chop:
+  name: Chop tree
+  done: true
+  project: tree 
+
+gear:
+  name: Gather car washing supplies
+  done: false
+  project: car 
