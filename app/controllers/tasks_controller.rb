@@ -22,7 +22,7 @@ class TasksController < ApplicationController
   end
 
   def stop
-    @task = tasks
+    @task = task
     @log = @task.logs.first.update(stop: Time.now)
     render :refresh
   end
