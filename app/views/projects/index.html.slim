@@ -6,9 +6,9 @@ ul.tabs
     li[class="#{'active' if index == 0}#{' last' if index == @projects.size-1}"]
       = render project
 
-.project-time= format_logged(@project.logged)
+.project-time= format_logged(@project.logged) if @project
 
-= link_to 'delete project', projects_path(id: @project.id, format: 'js'), { class: 'project-delete', remote: true, method: :delete }
+= link_to 'delete project', projects_path(id: @project.id, format: 'js'), { class: 'project-delete', remote: true, method: :delete } if @project
 
 .task-create
   = form_tag( tasks_path, method: :post, remote: true ) do
@@ -16,4 +16,4 @@ ul.tabs
     = hidden_field_tag( :project_id, "#{@projects.empty? ? 0 : @projects.first.id}" )
 
 .taskpane
-  = render @project.tasks
+  = render @project.tasks if @project
